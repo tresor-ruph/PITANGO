@@ -1,6 +1,9 @@
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { useAuth } from "../../lib/auth";
 
 export default function DriverProfileScreen() {
+  const { signOut } = useAuth();
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Mon profil</Text>
@@ -26,7 +29,7 @@ export default function DriverProfileScreen() {
         </TouchableOpacity>
       </View>
 
-      <TouchableOpacity style={styles.logoutButton}>
+      <TouchableOpacity style={styles.logoutButton} onPress={signOut}>
         <Text style={styles.logoutText}>Se déconnecter</Text>
       </TouchableOpacity>
     </View>
