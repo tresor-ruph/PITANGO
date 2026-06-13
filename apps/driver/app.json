@@ -1,25 +1,47 @@
 {
   "expo": {
-    "name": "driver",
-    "slug": "driver",
+    "name": "Pitango Chauffeur",
+    "slug": "pitango-driver",
     "version": "1.0.0",
     "orientation": "portrait",
+    "scheme": "pitango-driver",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "bundleIdentifier": "com.pitango.driver",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Pitango utilise votre position pour recevoir des courses à proximité.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Pitango utilise votre position pour le suivi GPS en temps réel pendant les courses.",
+        "UIBackgroundModes": ["location"]
+      }
     },
     "android": {
+      "package": "com.pitango.driver",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_BACKGROUND_LOCATION"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-router",
+      "expo-splash-screen",
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Pitango utilise votre position pour le suivi GPS en temps réel pendant les courses."
+        }
+      ]
+    ]
   }
 }

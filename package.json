@@ -1,0 +1,16 @@
+{
+  "name": "pitango",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "passenger": "npm run start --workspace=apps/passenger",
+    "driver": "npm run start --workspace=apps/driver",
+    "passenger:android": "npm run android --workspace=apps/passenger",
+    "passenger:ios": "npm run ios --workspace=apps/passenger",
+    "driver:android": "npm run android --workspace=apps/driver",
+    "driver:ios": "npm run ios --workspace=apps/driver"
+  }
+}

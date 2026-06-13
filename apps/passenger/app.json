@@ -1,25 +1,45 @@
 {
   "expo": {
-    "name": "passenger",
-    "slug": "passenger",
+    "name": "Pitango Passager",
+    "slug": "pitango-passenger",
     "version": "1.0.0",
     "orientation": "portrait",
+    "scheme": "pitango-passenger",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "bundleIdentifier": "com.pitango.passenger",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Pitango utilise votre position pour trouver des taxis à proximité.",
+        "NSLocationAlwaysUsageDescription": "Pitango utilise votre position pour le suivi de course en temps réel."
+      }
     },
     "android": {
+      "package": "com.pitango.passenger",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-router",
+      "expo-splash-screen",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Pitango utilise votre position pour trouver des taxis à proximité."
+        }
+      ]
+    ]
   }
 }
